@@ -1,0 +1,12 @@
+mat-card{
+    width:80%;
+    margin:auto;
+}
+
+matformfield,
+textarea{
+    width: 100%;
+}
+.input1{
+    border: 1px solid black;
+}
