@@ -1,10 +1,14 @@
 <mat-card>
-  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
     <mat-form-field class="input1">
-        <input matInput type="text" ngModel name="title">
+        <!-- The ? will force Angular to first check where the post exists before trying to read the title 
+          and then will populate the [(ngModel)] with nothing if it doesnt exists.
+         -->
+        <input matInput type="text" [ngModel]="post?.title" name="title">
       </mat-form-field>
       <mat-form-field class="input1">
-        <textarea matInput rows="6" ngModel name="content"></textarea>
+        <textarea matInput rows="6" [ngModel]="post?.content" name="content"></textarea>
         <hr>
         <button mat-raised-button type="submit">Add Post</button>
       </mat-form-field>

@@ -1,11 +1,12 @@
-<mat-accordion *ngIf="posts.length > 0">
+<mat-accordion multi="true" *ngIf="posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
         {{post.title}} 
     </mat-expansion-panel-header>
     <p>{{post.content}}</p>
     <mat-action-row>
-        <button mat-button>Edit</button>
+      <!-- [routerLink]: binding to a property of routerLink also called routerLink where we pass the individual segments of the path we want to load -->
+      <a mat-button color="primary" [routerLink]="['/edit',post.id]">Edit</a>
       <button mat-button (click)="onDelete(post.id)">Delete</button>
     </mat-action-row>
   </mat-expansion-panel>
