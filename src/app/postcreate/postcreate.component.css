@@ -1,16 +1,30 @@
-mat-card{
-    width:80%;
-    margin:auto;
+mat-card {
+  width: 80%;
+  margin: auto;
 }
 
-matformfield,
+/* matformfield,
 textarea{
     width: 100%;
-}
-.input1{
-    border: 1px solid black;
+} */
+.input1 {
+  width: 100%;
+  border: 1px solid black;
 }
 
-mat-spinner{
-    margin: auto;
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
 }
