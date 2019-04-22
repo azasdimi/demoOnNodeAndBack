@@ -1,11 +1,14 @@
 import { AbstractControl } from "@angular/forms";
-import { Observable, Observer } from "rxjs";
+import { Observable, Observer, of } from "rxjs";
 
 //Promise<{[key: string]: any }> : That means that the promise will have a property that will be interpreted as a string and we don't care about the name
 //The [] here don't indicate an array but only indicate that this is just a dynamic property
 export const mimeType = (
   control: AbstractControl
 ): Promise<{ [key: string]: any }> | Observable<{ [key: string]: any }> => {
+  if (typeof control.value === "string") {
+    return of(null);
+  }
   const file = control.value as File;
   const fileReader = new FileReader();
   const frObs = Observable.create(

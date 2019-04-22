@@ -13,6 +13,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 // const PostModule = require('./models/post');
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/posts");
@@ -44,6 +45,9 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+//middleware built into express. it will apply to any request that have "/images" inside and the static middleware which will
+//alow any request with /images to continue
+app.use("/images", express.static(path.join("server/images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
